@@ -1,5 +1,7 @@
 # Tips for Design frontend
 
+[![Build Status](https://travis-ci.org/nobody-in-the-organization/tips-for-design-frontend.svg?branch=master)](https://travis-ci.org/nobody-in-the-organization/tips-for-design-frontend)
+
 > A Vue.js project
 
 ## Build Setup
