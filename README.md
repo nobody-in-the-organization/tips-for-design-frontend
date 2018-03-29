@@ -1,4 +1,4 @@
-# tips-for-design-frontend
+# Tips for Design frontend
 
 > A Vue.js project
 
