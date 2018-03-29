@@ -7,22 +7,26 @@ cache:
 # S: Build Lifecycle
 install:
   - npm install
-# before_script:
-
-script:
-  - npm run build
-after_script:
-  - cd ./dist
-  - git init
+before_script:
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
+  - git clone --branch gh-pages https://${GH_REF} dist
+
+script:
+  # - npm run build
+after_script:
+  - npm run build
+  - cd ./dist
+  # - git init
+  # - git config user.name "${U_NAME}"
+  # - git config user.email "${U_EMAIL}"
   - git add .
   - git commit -m "Update app"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:${P_BRANCH}
 # E: Build LifeCycle
 branches:
   only:
     - master
-env:
- global:
-  - GH_REF: $GH_REF
+# env:
+#  global:
+#   - GH_REF: $GH_REF
