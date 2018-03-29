@@ -4,13 +4,10 @@ node_js: stable
 cache:
   directories:
     - node_modules
-# S: Build Lifecycle
+# Start: Build Lifecycle
 install:
   - npm install
 # before_script:
-#   - git init
-#   - git config user.name "${U_NAME}"
-#   - git config user.email "${U_EMAIL}"
 script:
   - npm run build
 after_script:
@@ -21,10 +18,10 @@ after_script:
   - git add .
   - git commit -m "Update app"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-# E: Build LifeCycle
+# End: Build LifeCycle
 branches:
   only:
     - master
 env:
  global:
-  - GH_REF: github.com/nobody-in-the-organization/tips-for-design-frontend.git
+  - GH_REF: ${GH_REF}
